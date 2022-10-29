@@ -1,0 +1,139 @@
+* {
+  text-decoration: none;
+}
+
+html {
+  padding: 0;
+  margin: 0;
+  overflow: auto;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  overflow: auto;
+  overflow-x: hidden;
+  font-family: "Inter", Helvetica, Arial;
+  font-size: 14px;
+}
+
+/* ---------------- */
+/*   Header & nav   */
+/* ---------------- */
+
+.primary-header {
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2em;
+  height: 80px;
+}
+
+.mobile-nav-toggle {
+  display: none;
+}
+
+.logo {
+  margin: 1.5em;
+  width: 30px;
+  aspect-ratio: 1;
+  text-decoration: none;
+}
+
+.primary-navigation {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-link {
+    font-weight: 500;
+    color: var(--color-grey);
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.nav-link:hover {
+    color: var(--color-primary);
+}
+
+@media (max-width: 35em) {
+  .primary-header {
+    padding: 0 8em 0 0;
+  }
+
+  .primary-navigation {
+    --gap: 2em;
+
+    position: fixed;
+    z-index: 1000;
+    inset: 0 0 0 30%;
+
+    text-align: left;
+
+    flex-direction: column;
+    padding: 5em 2em;
+    background: var(--color-white);
+
+    transform: translateX(100%);
+    transition: transform 300ms ease-out;
+
+    overflow-y: hidden;
+  }
+
+  .primary-navigation[data-visible="true"] {
+    transform: translateX(0%);
+  }
+
+  .mobile-nav-toggle {
+    display: block;
+    position: absolute;
+    width: 2.5rem;
+    aspect-ratio: 1;
+    top: 1.5rem;
+    right: 1.5rem;
+    z-index: 9999;
+    border: 0;
+    background: transparent;
+    background-image: url("assets/burgermenu.svg");
+    background-repeat: no-repeat;
+  }
+
+  .mobile-nav-toggle[aria-expanded="true"] {
+    background-image: url("assets/menu-close.svg");
+  }
+
+  .nav-buttons {
+    margin-right: 6em;
+  }
+}
+
+@media (min-width: 35em) {
+  .primary-navigation {
+    --gap: clamp(1.5rem, 20vw, 3rem);
+    padding-block: 2rem;
+    padding-inline: clamp(3rem, 5vw, 10rem);
+  }
+}
+
+/* ------ */
+/*  Hero  */
+/* ------ */
+
+.hero {
+    background-image: url(Assets/hero-illustration.svg);
+    background-position: right;
+    background-repeat: no-repeat;
+
+    height: 82vh;
+    padding: 2em 0;
+    
+    justify-self: center;
+    justify-content: center;
+
+}
+
+.hero p{
+    margin-bottom: 3em;
+    max-width: 45ch;
+}
